@@ -1,12 +1,8 @@
 ﻿using BrawlmartTest.Models;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace BrawlmartTest
 {
+    // This class is only used initially to setup categories in the database... NOT TO BE USED IN THE FINAL PRODUCT
     internal class CreateCategories
     {
         public static void Run()

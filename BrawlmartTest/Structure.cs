@@ -1,10 +1,4 @@
-﻿using Microsoft.EntityFrameworkCore.Metadata;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using static System.Console;
+﻿using static System.Console;
 using BrawlmartTest.Models;
 
 namespace BrawlmartTest
@@ -25,7 +19,7 @@ namespace BrawlmartTest
             trinkets = new Trinkets();
             LoadFrontPageItems();
 
-            // Subscribe to the ItemAdded and ItemRemoved events
+            // Update the Cart counter in the main menu when increasing or decreasing quantity of an item in the cart
             Cart.ItemAdded += () => UpdateMainMenu(mainMenu);
             Cart.ItemRemoved += () => UpdateMainMenu(mainMenu);
         }

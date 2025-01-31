@@ -1,9 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using BrawlmartTest.Models;
+﻿using BrawlmartTest.Models;
 
 namespace BrawlmartTest
 {
@@ -69,15 +64,6 @@ namespace BrawlmartTest
                     {
                         Console.WriteLine("{0,-40} {1,-10} {2,-10} gold", item.Name, item.Quantity, item.Price);
                     }
-
-                    //Console.WriteLine();
-                    //Console.WriteLine("Delivery Method: Standard Delivery");
-                    //Console.WriteLine("Additional Cost: $5.00");
-                    //Console.WriteLine("Payment Method: Credit Card");
-                    //Console.WriteLine($"Total Price: {orderDetails.TotalPrice} gold");
-                    //Console.WriteLine();
-                    //Console.WriteLine("Press any key to return...");
-
                     ConsoleKeyInfo keyInfo = Console.ReadKey(true);
                     if (keyInfo.Key == ConsoleKey.Escape)
                     {

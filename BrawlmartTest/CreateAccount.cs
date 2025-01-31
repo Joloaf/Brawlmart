@@ -1,8 +1,6 @@
-using System;
 using BrawlmartTest.Models;
 using System.Text.RegularExpressions;
 using System.Text;
-using BrawlmartTest.Migrations;
 
 namespace BrawlmartTest
 {
@@ -82,7 +80,6 @@ namespace BrawlmartTest
                 Console.WriteLine("Account created successfully!");
                 Thread.Sleep(500);
             }
-
             Console.WriteLine("Press any key to return to the main menu...");
             Console.ReadKey(true);
         }
@@ -111,7 +108,6 @@ namespace BrawlmartTest
                 Console.WriteLine("Username can only contain letters and numbers.");
                 return false;
             }
-
             return true;
         }
 
@@ -156,7 +152,6 @@ namespace BrawlmartTest
         {
             StringBuilder password = new StringBuilder();
             ConsoleKeyInfo keyInfo;
-
             while (true)
             {
                 keyInfo = Console.ReadKey(true);
@@ -506,4 +501,3 @@ namespace BrawlmartTest
         }
     }
 }
-

@@ -1,6 +1,4 @@
-﻿using System;
-using BrawlmartTest.Models;
-using System.Linq;
+﻿using BrawlmartTest.Models;
 using System.Text;
 
 namespace BrawlmartTest
@@ -35,13 +33,11 @@ namespace BrawlmartTest
             int frameWidth = 48;
             int frameHeight = 8;
 
-            // Top border
             Console.SetCursorPosition(leftPosition, topPosition);
             Console.Write("╔");
             Console.Write(new string('═', frameWidth - 2));
             Console.Write("╗");
 
-            // Side borders
             for (int i = 1; i < frameHeight - 1; i++)
             {
                 Console.SetCursorPosition(leftPosition, topPosition + i);
@@ -50,13 +46,11 @@ namespace BrawlmartTest
                 Console.Write("║");
             }
 
-            // Bottom border
             Console.SetCursorPosition(leftPosition, topPosition + frameHeight - 1);
             Console.Write("╚");
             Console.Write(new string('═', frameWidth - 2));
             Console.Write("╝");
 
-            // Text for login frame
             Console.SetCursorPosition(leftPosition + 21, topPosition + 1);
             Console.WriteLine("Login");
             Console.SetCursorPosition(leftPosition + 1, topPosition + 2);
@@ -125,9 +119,7 @@ namespace BrawlmartTest
                     Console.Write("\b*");
                 }
             }
-
             return password.ToString();
         }
     }
 }
-

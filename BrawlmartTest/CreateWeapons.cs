@@ -1,8 +1,8 @@
 using BrawlmartTest.Models;
-using System;
 
 namespace BrawlmartTest
 {
+    // This class is only used initially to setup items in the database... NOT TO BE USED IN THE FINAL PRODUCT
     internal class CreateWeapons
     {
         public static void Run()

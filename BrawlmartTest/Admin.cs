@@ -1,9 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using BrawlmartTest.Models;
+﻿using BrawlmartTest.Models;
 using Microsoft.EntityFrameworkCore;
 
 
@@ -75,7 +70,6 @@ namespace BrawlmartTest
                 }
             }
         }
-
         private static void DisplayDetails(Menu mainMenu, Menu subMenu)
         {
             using (var dbContext = new MyDbContext())
@@ -244,7 +238,6 @@ namespace BrawlmartTest
                     else if (keyPressed == ConsoleKey.A)
                     {
                         CreateItem.AddNewItem(mainMenu, subMenu, structure);
-                        // Reload products after adding a new item
                         products = dbContext.Products.ToList();
                         totalPages = (int)Math.Ceiling(products.Count / (double)pageSize);
                     }
@@ -296,7 +289,6 @@ namespace BrawlmartTest
                     else if (keyPressed == ConsoleKey.X)
                     {
                         RemoveProduct(mainMenu,subMenu, productsToDisplay[selectedIndex], dbContext, structure);
-                        // Reload products after removing an item
                         products = dbContext.Products.ToList();
                         totalPages = (int)Math.Ceiling(products.Count / (double)pageSize);
                     }
@@ -546,7 +538,6 @@ namespace BrawlmartTest
 
             if (int.TryParse(input, out int newFrontId) && newFrontId >= 1 && newFrontId <= 3)
             {
-                // Set the current FrontId of the same value to null
                 var existingProduct = dbContext.Products.FirstOrDefault(p => p.FrontId == newFrontId);
                 if (existingProduct != null)
                 {
@@ -565,6 +556,7 @@ namespace BrawlmartTest
             Console.WriteLine("Press any key to return to the product list...");
             Console.ReadKey(true);
         }
+
         private static void EditProductCategory(Menu mainMenu, Menu subMenu, Product product, MyDbContext dbContext)
         {
             Console.Clear();

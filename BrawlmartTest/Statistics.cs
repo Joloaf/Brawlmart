@@ -1,11 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using BrawlmartTest.Models;
-
-namespace BrawlmartTest
+﻿namespace BrawlmartTest
 {
     internal class Statistics
     {
@@ -74,8 +67,6 @@ namespace BrawlmartTest
                     OrderStatistics.DisplayOrderStatisticsMenu(mainMenu, subMenu);
                     break;
             }
-            //Console.WriteLine("Press any key to return to the statistics menu...");
-            //Console.ReadKey(true);
         }
     }
 }

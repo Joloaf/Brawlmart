@@ -1,10 +1,4 @@
-﻿using BrawlmartTest.Models;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using static System.Console;
+﻿using static System.Console;
 
 namespace BrawlmartTest
 {
@@ -36,7 +30,6 @@ namespace BrawlmartTest
                     BackgroundColor = ConsoleColor.Black;
                 }
 
-                // Calculate padding for centered text and brackets
                 int totalPadding = ButtonWidth - 2 - currentOption.Length;
                 int leftPadding = totalPadding / 2;
                 int rightPadding = totalPadding - leftPadding;
@@ -56,6 +49,8 @@ namespace BrawlmartTest
             }
         }
 
+        // Ended up not using this method but will probably move back to using it in the future...
+        // Hope to get more modular navigation code in the next iteration... 2.0, here we come!
         public int Run()
         {
             ConsoleKey keyPressed;

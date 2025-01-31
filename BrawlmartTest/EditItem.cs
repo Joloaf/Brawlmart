@@ -1,4 +1,3 @@
-using System;
 using BrawlmartTest.Models;
 
 namespace BrawlmartTest

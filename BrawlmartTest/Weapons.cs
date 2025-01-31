@@ -1,9 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using BrawlmartTest.Models;
+﻿using BrawlmartTest.Models;
 
 namespace BrawlmartTest
 {
@@ -21,8 +16,8 @@ namespace BrawlmartTest
             using (var dbContext = new MyDbContext())
             {
                 products = dbContext.Products
-                    .Where(p => p.CategoryId == 1) // Assuming CategoryId 1 is for weapons
-                    .OrderBy(p => p.Name) // Sort by Name
+                    .Where(p => p.CategoryId == 1)
+                    .OrderBy(p => p.Name)
                     .ToList();
             }
         }
@@ -38,7 +33,7 @@ namespace BrawlmartTest
             int currentPage = 0;
             int itemsPerPage = 15;
             int totalPages = (int)Math.Ceiling((double)products.Count / itemsPerPage);
-            int itemStartLine = 15; // Adjust this based on the actual line number where items start
+            int itemStartLine = 15;
             ConsoleKey keyPressed;
 
             void DisplayPage()

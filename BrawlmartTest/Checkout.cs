@@ -1,10 +1,5 @@
 ﻿using BrawlmartTest.Models;
-using System;
-using System.Collections.Generic;
-using System.Linq;
 using System.Text;
-using System.Threading.Tasks;
-using Microsoft.EntityFrameworkCore;
 
 namespace BrawlmartTest
 {
@@ -95,9 +90,9 @@ namespace BrawlmartTest
                 }
                 else if (keyPressed == ConsoleKey.Enter)
                 {
-                    Console.SetCursorPosition(addressFields[selectedIndex].Length + 2, selectedIndex + 11);
+                    Console.SetCursorPosition(addressFields[selectedIndex].Length + 2, selectedIndex + 12);
                     Console.Write(addressValues[selectedIndex]);
-                    Console.SetCursorPosition(addressFields[selectedIndex].Length + 2 + addressValues[selectedIndex].Length, selectedIndex + 11);
+                    Console.SetCursorPosition(addressFields[selectedIndex].Length + 2 + addressValues[selectedIndex].Length, selectedIndex + 12);
                     StringBuilder input = new StringBuilder(addressValues[selectedIndex]);
                     while (true)
                     {
@@ -112,9 +107,9 @@ namespace BrawlmartTest
                             if (input.Length > 0)
                             {
                                 input.Remove(input.Length - 1, 1);
-                                Console.SetCursorPosition(addressFields[selectedIndex].Length + 2, selectedIndex + 11);
+                                Console.SetCursorPosition(addressFields[selectedIndex].Length + 2, selectedIndex + 12);
                                 Console.Write(new string(' ', addressValues[selectedIndex].Length + 1));
-                                Console.SetCursorPosition(addressFields[selectedIndex].Length + 2, selectedIndex + 11);
+                                Console.SetCursorPosition(addressFields[selectedIndex].Length + 2, selectedIndex + 12);
                                 Console.Write(input.ToString());
                             }
                         }
@@ -152,7 +147,7 @@ namespace BrawlmartTest
                 }
             } while (true);
 
-            string[] deliveryOptions = { "[UPS]Unicorn Parcel Service (+500 gold)", "PostHorde (Free, at your own risk...)" };
+            string[] deliveryOptions = { "[UPS]Unicorn Parcel Service (1-2 days delivery time : +500 gold)", "PostHorde (10-50 days delivery time : Free, at your own risk...)" };
             int deliveryIndex = 0;
             do
             {
@@ -209,13 +204,13 @@ namespace BrawlmartTest
             {
                 totalPrice += 500;
                 Console.WriteLine();
-                Console.WriteLine($"Delivery by UPS (Unicorn Parcel Service) selected. Delivery time: 1-2 days. Additional cost of 500 gold added.");
+                Console.WriteLine($"Delivery by [UPS] Unicorn Parcel Service selected. Smart choice!");
                 System.Threading.Thread.Sleep(2000);
             }
             else
             {
                 Console.WriteLine();
-                Console.WriteLine("Delivery by PostHorde selected. Delivery time: 5-9 days. No additional cost for you, brave soul.");
+                Console.WriteLine("Delivery by PostHorde selected. Godspeed!");
                 System.Threading.Thread.Sleep(2000);
             }
 
@@ -337,8 +332,8 @@ namespace BrawlmartTest
                     var userInDb = context.Users.FirstOrDefault(u => u.Email == currentUser.Email);
                     if (userInDb == null)
                     {
-                        // THIS IS STILL NOT WORKING AND I'LL GET BACK TO FIXING THIS LATER, I PROMISE...
-                        // Create a new user
+                        // THIS IS STILL NOT WORKING AS INTENDED AND I'LL GET BACK TO FIXING THIS LATER, I PROMISE...
+                        // Create a new user... or so I wish...
                         var newUser = new BrawlmartTest.Models.User
                         {
                             FirstName = currentUser.FirstName,
@@ -417,20 +412,15 @@ namespace BrawlmartTest
             Console.WriteLine();
             Console.ForegroundColor = ConsoleColor.Blue;
             Console.WriteLine(@"
-                                                  __ 
-             _____ _           _                 |  |
-            |_   _| |_ ___ ___| |_    _ _ ___ _ _|  |
-              | | |   | .'|   | '_|  | | | . | | |__|
-              |_| |_|_|__,|_|_|_,_|  |_  |___|___|__|
-                                     |___|           ");
+                                                              __ 
+                         _____ _           _                 |  |
+                        |_   _| |_ ___ ___| |_    _ _ ___ _ _|  |
+                          | | |   | .'|   | '_|  | | | . | | |__|
+                          |_| |_|_|__,|_|_|_,_|  |_  |___|___|__|
+                                                 |___|           ");
             Console.ResetColor();
-            Console.WriteLine();
-            Console.WriteLine();
-            Console.WriteLine();
-            Console.WriteLine("Press any key to return to the front page...");
-            Console.ReadKey(true);
+            System.Threading.Thread.Sleep(3000);
             Cart.EmptyCart();
         }
     }
 }
-

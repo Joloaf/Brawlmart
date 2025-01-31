@@ -1,9 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using BrawlmartTest.Models;
+﻿using BrawlmartTest.Models;
 
 namespace BrawlmartTest
 {
@@ -114,7 +109,7 @@ namespace BrawlmartTest
                         break;
                     case "Average number of products per order":
                         var averageProductsPerOrder = dbContext.OrderProducts
-                            .AsEnumerable() // Switch to client-side evaluation
+                            .AsEnumerable()
                             .GroupBy(op => op.OrderId)
                             .Average(g => g.Sum(op => op.Quantity));
                         Console.WriteLine($"Average number of products per order: {averageProductsPerOrder:F2}");

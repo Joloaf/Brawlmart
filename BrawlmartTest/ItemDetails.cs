@@ -1,8 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using System.Text;
 using BrawlmartTest.Models;
 
 namespace BrawlmartTest
@@ -49,7 +45,6 @@ namespace BrawlmartTest
                 Console.WriteLine(new string('-', 100));
                 Console.WriteLine();
 
-                // Display average rating and feedback notes
                 DisplayAverageRatingAndFeedback(product);
 
                 if (Login.IsLoggedIn())
@@ -234,7 +229,6 @@ namespace BrawlmartTest
                         }
                         else
                         {
-                            // Move cursor up one line if at the start of a new line
                             Console.SetCursorPosition(Console.CursorLeft, Console.CursorTop - 1);
                             currentLineLength = maxLineLength - 1;
                         }

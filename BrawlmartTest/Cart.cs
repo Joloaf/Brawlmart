@@ -1,9 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using BrawlmartTest.Models;
+﻿using BrawlmartTest.Models;
 
 namespace BrawlmartTest
 {
@@ -176,10 +171,10 @@ namespace BrawlmartTest
             } while (true);
         }
 
-        public static List<string> GetItemNames()
-        {
-            return cartItems.Select(item => item.Product.Name).ToList();
-        }
+        //public static List<string> GetItemNames()
+        //{
+        //    return cartItems.Select(item => item.Product.Name).ToList();
+        //}
 
         public static void EmptyCart()
         {

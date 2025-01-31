@@ -7,7 +7,8 @@ namespace BrawlmartTest
     {
         private static async Task Main(string[] args)
         {
-            // Uncomment the following lines to create items
+            // Uncomment the following lines to create items... NOT TO BE USED IN THE FINAL PRODUCT
+            // CreateCategories.Run();
             // CreateWeapons.Run();
             // CreateArmors.Run();
             // CreateTrinkets.Run();

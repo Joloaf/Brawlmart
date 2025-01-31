@@ -1,9 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using BrawlmartTest.Models;
+﻿using BrawlmartTest.Models;
 
 namespace BrawlmartTest
 {
@@ -52,7 +47,7 @@ namespace BrawlmartTest
                 Console.WriteLine("Item added successfully!");
             }
 
-            // Reload the products in the marketplace
+            // Reload products in the marketplace
             structure.ReloadFrontPageItems();
             structure.weapons.ReloadProducts();
             structure.armors.ReloadProducts();
@@ -154,4 +149,3 @@ namespace BrawlmartTest
         }
     }
 }
-

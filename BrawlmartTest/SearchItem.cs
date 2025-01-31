@@ -1,8 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using System.Text;
 using BrawlmartTest.Models;
 
 namespace BrawlmartTest
@@ -24,11 +20,8 @@ namespace BrawlmartTest
             Console.WriteLine();
             Console.WriteLine("Press Enter to start the search for your desired item!");
             Console.WriteLine("(Leave the search field empty to rummage through all the potential loot in the marketplace...)");
-
-            // Set the cursor position back to the input line
+            
             Console.SetCursorPosition(cursorLeft, cursorTop);
-
-            // Read the input with the ability to cancel with Escape
             StringBuilder searchTermBuilder = new StringBuilder();
             ConsoleKeyInfo keyInfo;
             while (true)
@@ -66,7 +59,7 @@ namespace BrawlmartTest
                                 p.Size.Contains(searchTerm) ||
                                 p.Material.Contains(searchTerm) ||
                                 p.Details.Contains(searchTerm))
-                    .OrderBy(p => p.Name) // Sort by Name
+                    .OrderBy(p => p.Name)
                     .ToList();
             }
 
@@ -88,7 +81,7 @@ namespace BrawlmartTest
             int currentPage = 0;
             int itemsPerPage = 15;
             int totalPages = (int)Math.Ceiling((double)matchedItems.Count / itemsPerPage);
-            int itemStartLine = 13; // Adjust this based on the actual line number where items start
+            int itemStartLine = 13;
             ConsoleKey keyPressed;
 
             void DisplayPage()
