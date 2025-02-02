@@ -2,7 +2,7 @@
 
 namespace BrawlmartTest
 {
-    internal class Trinkets
+    public class Trinkets
     {
         private List<Product> products;
 
@@ -193,7 +193,7 @@ namespace BrawlmartTest
                     else
                     {
                         Console.SetCursorPosition(0, itemStartLine + itemsPerPage + 3);
-                        Cart.AddToCart(selectedItem);
+                        Cart.AddToCartAsync(selectedItem);
                         Console.WriteLine("Item added to cart.");
                         System.Threading.Thread.Sleep(1000);
                         DisplayPage();

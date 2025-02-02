@@ -238,7 +238,7 @@ namespace BrawlmartTest
                     }
                     else
                     {
-                        Cart.AddToCart(selectedItem);
+                        Cart.AddToCartAsync(selectedItem);
                         Console.SetCursorPosition(0, itemStartLine + itemsPerPage + 6);
                         Console.WriteLine("Item added to cart.");
                         System.Threading.Thread.Sleep(1000);

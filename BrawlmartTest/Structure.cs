@@ -3,7 +3,7 @@ using BrawlmartTest.Models;
 
 namespace BrawlmartTest
 {
-    internal class Structure
+    public class Structure
     {
         public Weapons weapons;
         public Armors armors;
@@ -11,6 +11,7 @@ namespace BrawlmartTest
         public List<Product> frontPageItems;
         public Menu mainMenu;
         public User currentUser { get; private set; }
+        private bool isDisplayingCart;
 
         public Structure()
         {
@@ -91,20 +92,23 @@ namespace BrawlmartTest
                         inMainMenu = false;
                         selectedIndex = 0;
                     }
-                    else if (keyPressed == ConsoleKey.LeftArrow)
+                    else if (!isDisplayingCart)
                     {
-                        mainMenu.SelectedIndex--;
-                        if (mainMenu.SelectedIndex < 0)
+                        if (keyPressed == ConsoleKey.LeftArrow)
                         {
-                            mainMenu.SelectedIndex = mainOptions.Length - 1;
+                            mainMenu.SelectedIndex--;
+                            if (mainMenu.SelectedIndex < 0)
+                            {
+                                mainMenu.SelectedIndex = mainOptions.Length - 1;
+                            }
                         }
-                    }
-                    else if (keyPressed == ConsoleKey.RightArrow)
-                    {
-                        mainMenu.SelectedIndex++;
-                        if (mainMenu.SelectedIndex >= mainOptions.Length)
+                        else if (keyPressed == ConsoleKey.RightArrow)
                         {
-                            mainMenu.SelectedIndex = 0;
+                            mainMenu.SelectedIndex++;
+                            if (mainMenu.SelectedIndex >= mainOptions.Length)
+                            {
+                                mainMenu.SelectedIndex = 0;
+                            }
                         }
                     }
                 }
@@ -247,11 +251,12 @@ namespace BrawlmartTest
             }
         }
 
-        private void LootWagon(Menu mainMenu)
+        public void LootWagon(Menu mainMenu)
         {
             bool isLoggedIn = currentUser != null;
             Checkout.User checkoutUser = MapUserToCheckoutUser(currentUser);
-            Cart.DisplayCart(mainMenu, isLoggedIn, checkoutUser);
+            isDisplayingCart = true;
+            Cart.DisplayCartAsync(this, mainMenu, isLoggedIn, checkoutUser).ContinueWith(_ => isDisplayingCart = false); // Reset the flag after DisplayCartAsync completes
         }
 
         private Checkout.User MapUserToCheckoutUser(User user)
@@ -359,12 +364,12 @@ namespace BrawlmartTest
             Console.WriteLine();
             Console.ForegroundColor = ConsoleColor.Blue;
             Console.WriteLine(@"
-                                                                                            __ 
-          _____ _           _                                                         _    |  |
-         |_   _| |_ ___ ___| |_    _ _ ___ _ _       ___ ___ _____ ___    ___ ___ ___|_|___|  |
-           | | |   | .'|   | '_|  | | | . | | | _   |  _| . |     | -_|  | .'| . | .'| |   |__|
-           |_| |_|_|__,|_|_|_,_|  |_  |___|___|| |  |___|___|_|_|_|___|  |__,|_  |__,|_|_|_|__|
-                                  |___|        |_|                           |___|             ");
+                                                                                                __ 
+              _____ _           _                                                         _    |  |
+             |_   _| |_ ___ ___| |_    _ _ ___ _ _       ___ ___ _____ ___    ___ ___ ___|_|___|  |
+               | | |   | .'|   | '_|  | | | . | | | _   |  _| . |     | -_|  | .'| . | .'| |   |__|
+               |_| |_|_|__,|_|_|_,_|  |_  |___|___|| |  |___|___|_|_|_|___|  |__,|_  |__,|_|_|_|__|
+                                      |___|        |_|                           |___|             ");
             System.Threading.Thread.Sleep(3000);
             Console.ResetColor();
             Environment.Exit(0);

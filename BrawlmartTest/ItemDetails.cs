@@ -77,7 +77,7 @@ namespace BrawlmartTest
 
                 if (keyPressed == ConsoleKey.B && product.Stock > 0)
                 {
-                    Cart.AddToCart(product);
+                    Cart.AddToCartAsync(product);
                     Console.WriteLine("Item added to cart.");
                     System.Threading.Thread.Sleep(1000);
                 }

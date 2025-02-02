@@ -5,13 +5,14 @@ namespace BrawlmartTest
     public class Menu
     {
         public int SelectedIndex { get; set; }
-        private string[] Options;
+        public string[] Options;
         private const int ButtonWidth = 20;
+        public bool DisableArrowKeys { get; set; }
 
         public Menu(string[] options)
         {
             Options = options;
-            SelectedIndex = 0;
+            //SelectedIndex = 0;
         }
 
         public void DisplayOptions()
@@ -62,20 +63,23 @@ namespace BrawlmartTest
 
                 ConsoleKeyInfo keyInfo = ReadKey(true);
                 keyPressed = keyInfo.Key;
-                if (keyPressed == ConsoleKey.LeftArrow)
+                if (!DisableArrowKeys)
                 {
-                    SelectedIndex--;
-                    if (SelectedIndex == -1)
+                    if (keyPressed == ConsoleKey.LeftArrow)
                     {
-                        SelectedIndex = Options.Length - 1;
+                        SelectedIndex--;
+                        if (SelectedIndex == -1)
+                        {
+                            SelectedIndex = Options.Length - 1;
+                        }
                     }
-                }
-                else if (keyPressed == ConsoleKey.RightArrow)
-                {
-                    SelectedIndex++;
-                    if (SelectedIndex == Options.Length)
+                    else if (keyPressed == ConsoleKey.RightArrow)
                     {
-                        SelectedIndex = 0;
+                        SelectedIndex++;
+                        if (SelectedIndex == Options.Length)
+                        {
+                            SelectedIndex = 0;
+                        }
                     }
                 }
             } while (keyPressed != ConsoleKey.Enter);

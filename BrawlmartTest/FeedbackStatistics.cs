@@ -13,7 +13,6 @@ namespace BrawlmartTest
                         "Worst rated product(s)",
                         "Happiest customer",
                         "Least happy customer",
-                        "Best customer"
                     };
 
         private static int selectedIndex = 0;
@@ -137,23 +136,6 @@ namespace BrawlmartTest
                             foreach (var customer in leastHappyCustomer)
                             {
                                 Console.WriteLine($"UserName: {customer.UserName}, AverageRating: {customer.AverageRating}");
-                            }
-                        }
-                        break;
-                    case "Best customer":
-                        using (var connection = new SqlConnection(connString))
-                        {
-                            var query = @"
-                            SELECT TOP 1 u.UserName, AVG(f.UserRating) AS AverageRating, COUNT(DISTINCT f.ProductId) AS ProductsBought
-                            FROM Feedbacks f
-                            JOIN Users u ON f.UserId = u.Id
-                            GROUP BY u.UserName
-                            ORDER BY AverageRating DESC, ProductsBought DESC";
-
-                            var bestCustomer = connection.Query<CustomerFeedback>(query).ToList();
-                            foreach (var customer in bestCustomer)
-                            {
-                                Console.WriteLine($"UserName: {customer.UserName}, AverageRating: {customer.AverageRating}, ProductsBought: {customer.ProductsBought}");
                             }
                         }
                         break;
