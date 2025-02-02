@@ -220,6 +220,13 @@ namespace BrawlmartTest
                 {
                     dbProduct.Click = (dbProduct.Click ?? 0) + 1;
                     dbContext.SaveChanges();
+
+                    Models.MongoData mongoData = new Models.MongoData()
+                    {
+                        Id = Guid.NewGuid(),
+                        ProductName = dbProduct.Name,
+                        UserInterest = dbProduct.Click ?? 0
+                    };
                 }
             }
         }
