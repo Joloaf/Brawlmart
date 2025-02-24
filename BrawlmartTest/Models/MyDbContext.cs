@@ -22,8 +22,7 @@ namespace BrawlmartTest.Models
 
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
-            // optionsBuilder.UseSqlServer("Server=.\\SQLExpress;Database=EFKardinalitetsDemo; Trusted_Connection=True; TrustServerCertificate=True;");
-            optionsBuilder.UseSqlServer("Server=tcp:viking.database.windows.net,1433;Initial Catalog=System24DB;Persist Security Info=False;User ID=ragnarok;Password=rune!Axe430;MultipleActiveResultSets=False;Encrypt=True;TrustServerCertificate=False;Connection Timeout=30;");
+            optionsBuilder.UseSqlServer("Server=tcp:'',1433;Initial Catalog='';Persist Security Info=False;User ID=''ragnarok'';Password='';MultipleActiveResultSets=False;Encrypt=True;TrustServerCertificate=False;Connection Timeout=30;");
         }
     }
 }

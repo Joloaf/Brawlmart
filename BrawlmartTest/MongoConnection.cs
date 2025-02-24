@@ -11,7 +11,7 @@ namespace BrawlmartTest
     {
         private static MongoClient GetClient()
         {
-            string connectionString = "mongodb+srv://joachimcarlsson:Admin1234@cluster0.rslea.mongodb.net/?retryWrites=true&w=majority&appName=Cluster0";
+            string connectionString = "";
 
             MongoClientSettings settings = MongoClientSettings.FromUrl(new MongoUrl(connectionString));
             settings.SslSettings = new SslSettings() { EnabledSslProtocols = System.Security.Authentication.SslProtocols.Tls13 };

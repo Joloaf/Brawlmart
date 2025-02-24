@@ -14,6 +14,7 @@ namespace BrawlmartTest
             // CreateArmors.Run();
             // CreateTrinkets.Run();
 
+            Console.ReadKey();
             Title.DisplayTitle();
             LoadingBar.DisplayLoadingBar();
             
